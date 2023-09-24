@@ -1,0 +1,36 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: employee_management_system
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  springboot-backend:
+    build:
+      context: .
+      dockerfile: springboot-backend/Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/employee_management_system
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
+
+  react-frontend:
+    build:
+      context: ./react-frontend
+      dockerfile: Dockerfile
+    depends_on:
+      - springboot-backend
+    ports:
+      - 3000:3000
+
+volumes:
+  mysql_data:
