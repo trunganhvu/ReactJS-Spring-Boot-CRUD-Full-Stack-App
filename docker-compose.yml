@@ -9,11 +9,13 @@ services:
       - 3306:3306
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
 
   springboot-backend:
     build:
-      context: .
-      dockerfile: springboot-backend/Dockerfile
+      context: ./springboot-backend
+      dockerfile: Dockerfile
     ports:
       - 8080:8080
     depends_on:
@@ -22,15 +24,24 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/employee_management_system
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: password
+    volumes:
+      - spring_data:/springboot-backend
+    networks:
+      - app-network
 
   react-frontend:
     build:
       context: ./react-frontend
       dockerfile: Dockerfile
-    depends_on:
-      - springboot-backend
     ports:
       - 3000:3000
+    networks:
+      - app-network
 
 volumes:
   mysql_data:
+  spring_data:
+  
+networks:
+  app-network:
+    driver: bridge
