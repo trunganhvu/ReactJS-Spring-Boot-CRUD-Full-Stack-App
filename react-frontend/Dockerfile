@@ -1,5 +1,5 @@
 # Sử dụng node image với phiên bản mong muốn
-FROM node:14
+FROM node:16
 
 # Thiết lập thư mục làm việc trong container
 WORKDIR /react-frontend

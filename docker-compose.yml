@@ -39,7 +39,7 @@ services:
       - app-network
 
 volumes:
-  mysql_data:
+  mysql_data: 
   spring_data:
   
 networks:
