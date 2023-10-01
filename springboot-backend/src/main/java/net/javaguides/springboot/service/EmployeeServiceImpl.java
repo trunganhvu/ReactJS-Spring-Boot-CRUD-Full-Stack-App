@@ -6,7 +6,9 @@ import net.javaguides.springboot.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
@@ -15,7 +17,11 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public List<Employee> findAll() {
-        return employeeRepository.findAll();
+//        return employeeRepository.findAll();
+        return employeeRepository.findAll().stream().map(employee -> {
+            employee.setEmailId("Email:" + employee.getEmailId());
+            return employee;
+        }).collect(Collectors.toList());
     }
 
     @Override

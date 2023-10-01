@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import net.javaguides.springboot.service.EmployeeService;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,15 +27,21 @@ import net.javaguides.springboot.repository.EmployeeRepository;
 @RestController
 @RequestMapping("/api/v1/")
 public class EmployeeController {
-
+	@Value("${appx}")
+	private String a;
 	@Autowired
 	private EmployeeService employeeService;
-	
+
 	// get all employees
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees(){
+
 		return employeeService.findAll();
-	}		
+	}
+	@GetMapping("/test")
+	public String test() {
+		return a;
+	}
 	
 	// create employee rest api
 	@PostMapping("/employees")
@@ -66,6 +74,5 @@ public class EmployeeController {
 		response.put("deleted", Boolean.TRUE);
 		return ResponseEntity.ok(response);
 	}
-	
-	
+
 }

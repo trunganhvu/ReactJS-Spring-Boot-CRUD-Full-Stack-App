@@ -24,8 +24,9 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/employee_management_system
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: password
+      ABC: value12
     volumes:
-      - spring_data:/springboot-backend
+      - ./springboot-backend/target:/springboot-backend
     networks:
       - app-network
 
@@ -41,7 +42,6 @@ services:
 
 volumes:
   mysql_data: 
-  spring_data:
   
 networks:
   app-network:
