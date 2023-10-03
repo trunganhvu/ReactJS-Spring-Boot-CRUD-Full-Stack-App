@@ -29,8 +29,6 @@ import net.javaguides.springboot.repository.EmployeeRepository;
 public class EmployeeController {
 	// TODO develop
 	// TODO feat/1000
-	// TODO feat/1000-1
-	// TODO feat/1000-2
 	@Value("${appx}")
 	private String a;
 	@Autowired
