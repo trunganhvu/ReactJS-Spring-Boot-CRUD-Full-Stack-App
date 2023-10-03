@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "employees")
 public class Employee {
-	
+	// TODO develop
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
