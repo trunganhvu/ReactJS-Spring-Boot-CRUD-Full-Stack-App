@@ -27,11 +27,16 @@ import net.javaguides.springboot.repository.EmployeeRepository;
 @RestController
 @RequestMapping("/api/v1/")
 public class EmployeeController {
+	// TODO develop
+	// TODO feat/1000
+	// TODO feat/1000-1-update
+	// TODO feat/1000-2-update
 	@Value("${appx}")
 	private String a;
 	@Autowired
 	private EmployeeService employeeService;
 
+	// TODO feat/1001-update
 	// get all employees
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees(){

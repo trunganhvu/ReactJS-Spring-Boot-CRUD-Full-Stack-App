@@ -5,7 +5,11 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "employees")
 public class Employee {
-	
+	// TODO develop
+	// TODO feat/1000
+	// TODO feat/1000-1
+	// TODO feat/1000-2
+	// TODO feat/1000-3
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -18,7 +22,7 @@ public class Employee {
 	
 	@Column(name = "email_id")
 	private String emailId;
-	
+	// TODO feat/1001
 	public Employee() {
 		
 	}
