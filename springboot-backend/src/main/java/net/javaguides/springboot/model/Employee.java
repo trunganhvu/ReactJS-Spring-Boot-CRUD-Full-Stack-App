@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 @Table(name = "employees")
 public class Employee {
 	// TODO develop
+	// TODO 2000
+	// TODO 2000-1
+	// TODO 2000-2
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
