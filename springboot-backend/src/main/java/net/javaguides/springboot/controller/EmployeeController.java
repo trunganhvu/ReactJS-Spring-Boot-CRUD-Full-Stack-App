@@ -33,6 +33,7 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 
+	// TODO feat/1001
 	// get all employees
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees(){

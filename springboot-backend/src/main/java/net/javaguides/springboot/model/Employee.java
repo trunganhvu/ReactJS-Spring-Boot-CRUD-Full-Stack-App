@@ -18,7 +18,7 @@ public class Employee {
 	
 	@Column(name = "email_id")
 	private String emailId;
-	
+	// TODO feat/1001
 	public Employee() {
 		
 	}
